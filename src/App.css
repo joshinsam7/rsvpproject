@@ -1190,8 +1190,7 @@ section h3 {
 
 @media (min-width: 360px) and (max-width: 768px) {
   .home-hero__img {
-    object-fit: scale-down;
-    object-position: center;
-  
+    object-fit: cover;
+    object-position: 50% 35%; /* 50% horizontal, 20% vertical */
   }
 }
