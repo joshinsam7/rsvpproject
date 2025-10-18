@@ -36,16 +36,17 @@
   position: relative;
   overflow: hidden;
   border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
   background: #ffffff;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  padding: 12px; /* equal inner padding between image and card border */
+  padding: 12px;
+  /* equal inner padding between image and card border */
   border: 1px solid #e2e8f0;
 }
 
 .showcase-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
 }
 
 /* Zoom on interaction */
@@ -61,6 +62,7 @@
 
 /* Respect reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
+
   .showcase-card:hover .showcase-image,
   .showcase-card:focus-within .showcase-image,
   .showcase-card.in-view .showcase-image {
@@ -71,33 +73,59 @@
 
 .showcase-image {
   width: 100%;
-  height: 340px; /* larger image height */
+  height: 340px;
+  /* larger image height */
   object-fit: cover;
   display: block;
-  border-radius: 12px; /* ensures equal visual padding inside card */
+  border-radius: 12px;
+  /* ensures equal visual padding inside card */
   transform: scale(1);
   transition: transform 350ms ease, filter 350ms ease, transform-origin 150ms ease;
 }
 
 @media (min-width: 1440px) {
-  .showcase-grid { grid-template-columns: repeat(4, 1fr); }
-  .showcase-image { height: 360px; }
+  .showcase-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .showcase-image {
+    height: 360px;
+  }
 }
 
 @media (max-width: 1024px) {
-  .showcase-grid { grid-template-columns: repeat(2, 1fr); }
-  .showcase-image { height: 300px; }
+  .showcase-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .showcase-image {
+    height: 300px;
+  }
 }
 
 @media (max-width: 768px) {
-  .showcase-section { padding: 3rem 1.25rem; }
-  .showcase-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-  .showcase-image { height: 240px; }
+  .showcase-section {
+    padding: 3rem 1.25rem;
+  }
+
+  .showcase-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .showcase-image {
+    height: 240px;
+  }
 }
 
 @media (max-width: 480px) {
-  .showcase-grid { grid-template-columns: 1fr; }
-  .showcase-image { height: 240px; }
+  .showcase-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .showcase-image {
+    height: 240px;
+  }
 }
 
 #root {
@@ -113,9 +141,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -124,6 +154,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -151,21 +182,27 @@ section {
   box-sizing: border-box;
 }
 
-section p, section ul, section h1, section h2, section h3 {
+section p,
+section ul,
+section h1,
+section h2,
+section h3 {
   max-width: 100%;
 }
 
 /* Full-bleed Home hero: two images side by side filling the screen */
 .home-hero {
-  padding: 0;           /* remove section padding for full-bleed */
-  max-width: none;      /* allow full width */
+  padding: 0;
+  /* remove section padding for full-bleed */
+  max-width: none;
+  /* allow full width */
 }
 
 .home-hero__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 100vw;
-  margin-left: calc(50% - 50vw);  
+  margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
 
 }
@@ -249,7 +286,8 @@ section p, section ul, section h1, section h2, section h3 {
 .home-hero__img {
   width: 100%;
   height: 100%;
-  object-fit: cover;     /* cover the entire cell */
+  object-fit: cover;
+  /* cover the entire cell */
   object-position: center;
   display: block;
 }
@@ -264,8 +302,10 @@ section p, section ul, section h1, section h2, section h3 {
 
 @media (max-width: 768px) {
   .home-hero__grid {
-    grid-template-columns: 1fr;  /* stack on smaller screens */
-    height: 100vh;               /* still fill the screen */
+    grid-template-columns: 1fr;
+    /* stack on smaller screens */
+    height: 100vh;
+    /* still fill the screen */
   }
 }
 
@@ -311,6 +351,7 @@ section p, section ul, section h1, section h2, section h3 {
     height: calc(100vh - 100px);
   }
 }
+
 /* Nudge only the right image up on desktop */
 @media (min-width: 769px) {
   .home-hero__side--right .home-hero__img {
@@ -322,76 +363,76 @@ section p, section ul, section h1, section h2, section h3 {
 .invitation-overlay {
   padding: 0;
   max-width: none;
-  background: #063c96; /* dark blue like header */
+  background: #063c96;
+  /* dark blue like header */
   width: 100%;
-  margin: 4rem 0 0 0; /* add space above */
+  margin: 4rem 0 0 0;
+  /* add space above */
   position: relative;
-  clip-path: polygon(
-    0 5%,
-    2% 3%,
-    5% 4%,
-    8% 2%,
-    12% 3.5%,
-    15% 2%,
-    18% 3%,
-    22% 1.5%,
-    25% 2.5%,
-    28% 1%,
-    32% 2%,
-    35% 0.5%,
-    38% 2%,
-    42% 1%,
-    45% 2.5%,
-    48% 1.5%,
-    52% 2%,
-    55% 1%,
-    58% 2.5%,
-    62% 1.5%,
-    65% 3%,
-    68% 1.5%,
-    72% 2.5%,
-    75% 1%,
-    78% 2%,
-    82% 1.5%,
-    85% 3%,
-    88% 2%,
-    92% 3.5%,
-    95% 2%,
-    98% 4%,
-    100% 5%,
-    100% 95%,
-    98% 96%,
-    95% 98%,
-    92% 96.5%,
-    88% 98%,
-    85% 97%,
-    82% 98.5%,
-    78% 97%,
-    75% 99%,
-    72% 97.5%,
-    68% 98.5%,
-    65% 97%,
-    62% 98.5%,
-    58% 97.5%,
-    55% 99%,
-    52% 98%,
-    48% 98.5%,
-    45% 97.5%,
-    42% 99%,
-    38% 98%,
-    35% 99.5%,
-    32% 98%,
-    28% 99%,
-    25% 97.5%,
-    22% 98.5%,
-    18% 97%,
-    15% 98%,
-    12% 96.5%,
-    8% 98%,
-    5% 96%,
-    2% 97%,
-    0 95%
-  );
+  clip-path: polygon(0 5%,
+      2% 3%,
+      5% 4%,
+      8% 2%,
+      12% 3.5%,
+      15% 2%,
+      18% 3%,
+      22% 1.5%,
+      25% 2.5%,
+      28% 1%,
+      32% 2%,
+      35% 0.5%,
+      38% 2%,
+      42% 1%,
+      45% 2.5%,
+      48% 1.5%,
+      52% 2%,
+      55% 1%,
+      58% 2.5%,
+      62% 1.5%,
+      65% 3%,
+      68% 1.5%,
+      72% 2.5%,
+      75% 1%,
+      78% 2%,
+      82% 1.5%,
+      85% 3%,
+      88% 2%,
+      92% 3.5%,
+      95% 2%,
+      98% 4%,
+      100% 5%,
+      100% 95%,
+      98% 96%,
+      95% 98%,
+      92% 96.5%,
+      88% 98%,
+      85% 97%,
+      82% 98.5%,
+      78% 97%,
+      75% 99%,
+      72% 97.5%,
+      68% 98.5%,
+      65% 97%,
+      62% 98.5%,
+      58% 97.5%,
+      55% 99%,
+      52% 98%,
+      48% 98.5%,
+      45% 97.5%,
+      42% 99%,
+      38% 98%,
+      35% 99.5%,
+      32% 98%,
+      28% 99%,
+      25% 97.5%,
+      22% 98.5%,
+      18% 97%,
+      15% 98%,
+      12% 96.5%,
+      8% 98%,
+      5% 96%,
+      2% 97%,
+      0 95%);
 }
 
 .invitation-content {
@@ -595,12 +636,16 @@ section p, section ul, section h1, section h2, section h3 {
 }
 
 @keyframes wobble {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: rotate(0deg);
   }
+
   25% {
     transform: rotate(2deg);
   }
+
   75% {
     transform: rotate(-2deg);
   }
@@ -633,18 +678,23 @@ section p, section ul, section h1, section h2, section h3 {
 }
 
 @keyframes blobAnimation {
-  0%, 100% {
+
+  0%,
+  100% {
     border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
     transform: translate(-50%, -50%) rotate(0deg);
   }
+
   25% {
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
     transform: translate(-50%, -50%) rotate(90deg);
   }
+
   50% {
     border-radius: 30% 70% 50% 50% / 50% 60% 40% 60%;
     transform: translate(-50%, -50%) rotate(180deg);
   }
+
   75% {
     border-radius: 70% 30% 40% 60% / 40% 70% 50% 60%;
     transform: translate(-50%, -50%) rotate(270deg);
@@ -664,6 +714,7 @@ section p, section ul, section h1, section h2, section h3 {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -685,7 +736,8 @@ section p, section ul, section h1, section h2, section h3 {
   .about-image {
     max-width: 100%;
     padding-right: 0;
-    order: -1; /* Image first on mobile */
+    order: -1;
+    /* Image first on mobile */
   }
 
   .about-img-wrapper {
@@ -866,7 +918,7 @@ section p, section ul, section h1, section h2, section h3 {
   border-radius: 20px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
   animation: slideIn 0.5s ease-out;
-  margin-top : 100px; 
+  margin-top: 100px;
 }
 
 .rsvp-form h3 {
@@ -979,6 +1031,7 @@ section p, section ul, section h1, section h2, section h3 {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1113,11 +1166,11 @@ section p, section ul, section h1, section h2, section h3 {
   .footer {
     padding: 2rem 1.5rem;
   }
-  
+
   .footer-nav {
     gap: 1.5rem;
   }
-  
+
   .footer-nav-item {
     font-size: 0.95rem;
   }
@@ -1128,10 +1181,17 @@ section p, section ul, section h1, section h2, section h3 {
     flex-direction: column;
     gap: 1rem;
   }
-  
+
   .footer-nav-item {
     width: 100%;
     text-align: center;
   }
 }
 
+@media (min-width: 360px) and (max-width: 768px) {
+  .home-hero__img {
+    object-fit: scale-down;
+    object-position: center;
+  
+  }
+}
