@@ -12,12 +12,10 @@ export default function Home() {
         <div className="home-hero__side home-hero__side--right">
           <img src={cakeImg} alt="Birthday cake" className="home-hero__img2" />
         </div>
-        {/* <div id="invitation" className="invitation-overlay">
-        <div className="invitation-content">
-            <h2 className="invitation-title">You're Invited!</h2>
-            <p className="invitation-text">Join us for a special birthday celebration filled with fun, laughter, and unforgettable memories. We can't wait to celebrate with you!</p>
-          </div>
-        </div> */}
+        <div id="home-text" className="home-text">
+          <h2 style={{ margin: 0 }}>Hello Friends!</h2>
+          <p style={{ margin: '0.25rem 0 0'}}>Justopher is turning 1</p>
+        </div>      
       </div>
     </section>
   );

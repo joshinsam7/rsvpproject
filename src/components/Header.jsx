@@ -55,7 +55,7 @@ export default function Header() {
             onClick={() => scrollTo("about")}
             onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && scrollTo("about")}
           >
-            About Justapher
+            About Justopher
           </p>
           <p
             className="nav-item"

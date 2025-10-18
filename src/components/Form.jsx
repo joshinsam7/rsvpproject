@@ -5,15 +5,23 @@ export default function Form() {
     const [isFormVisible, setIsFormVisible] = useState(false);
     const [formData, setFormData] = useState({ name: "", email: "", attending: "", numberofGuests: "" });
     const formRef = useRef(null);
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        console.log("Form data updated:", formData);
+
+    });
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setLoading(true);
         const API_URL = import.meta.env.VITE_API_URL;
         
             console.log("API_URL from env:", API_URL);
         
             if (!API_URL) {
                 alert("API URL is not configured. Please check your .env file.");
+                setLoading(false);
                 return;
             }
         
@@ -25,8 +33,6 @@ export default function Form() {
         for (const [key, value] of formData.entries()) {
             urlEncoded.append(key, value);
         }
-        
-        // urlEncoded.append('source', 'web-form');
 
         // Log form data before sending
         console.log("Submitting form data:", Object.fromEntries(formData.entries()));
@@ -40,7 +46,6 @@ export default function Form() {
             mode: 'no-cors', 
         })
         .then(() => {
-            console.log("Form submitted successfully");
             alert("RSVP submitted successfully! 🎉");
             form.reset(); 
             setIsFormVisible(false);
@@ -48,6 +53,9 @@ export default function Form() {
         .catch((error) => {
             console.error("Error submitting form:", error);
             alert("There was an error submitting your RSVP. Please try again.");
+        })
+        .finally(() => {
+            setLoading(false);
         });
     };
 
@@ -86,43 +94,54 @@ export default function Form() {
 
         { isFormVisible ? (
             <form ref={formRef} className="rsvp-form" onSubmit={handleSubmit} style={{ backgroundColor: 'white' }}>
-                <h3>RSVP Form</h3>
-                <label>Will you join us for the birthday celebration?</label>
-                <div className="radio-group">
-                    <label className="radio-option">
-                        <input type="radio" name="attending" value="yes" required />
-                        <span>Yaaay 🎉</span>
+                <fieldset disabled={loading} style={{ border: 'none', padding: 0, margin: 0 }}>
+                    <h3>RSVP Form</h3>
+                    <label>Will you join us for the birthday celebration?</label>
+                    <div className="radio-group">
+                        <label className="radio-option">
+                            <input type="radio" name="attending" value="yes" required />
+                            <span>Yaaay 🎉</span>
+                        </label>
+                        <label className="radio-option">
+                            <input type="radio" name="attending" value="no" required />
+                            <span>Nope :/</span>
+                        </label>
+                    </div>
+                    <label>
+                        Name:
+                        <input type="text" name="name" required />
                     </label>
-                    <label className="radio-option">
-                        <input type="radio" name="attending" value="no" required />
-                        <span>Nope :/</span>
+                    <label>
+                        Email:
+                        <input type="email" name="email" required />
                     </label>
-                </div>
-                <label>
-                    Name:
-                    <input type="text" name="name" required />
-                </label>
-                <label>
-                    Email:
-                    <input type="email" name="email" required />
-                </label>
 
-                <label>
-                    Number of Guests:
-                    <select name="numberofGuests" required>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                    </select>
-                </label>
+                    <label>
+                        Number of Guests:
+                        <select name="numberofGuests" required>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </label>
 
-                <button type="submit" className="rsvp-btn rsvp-primary">
-                    Submit
-                </button>
+                    <button type="submit" className="rsvp-btn rsvp-primary" disabled={loading}>
+                        {loading ? (
+                            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                                <span className="btn-spinner" aria-hidden="true" />
+                                Submitting…
+                            </span>
+                        ) : (
+                            'Submit'
+                        )}
+                    </button>
+
+                    { loading && <p style={{ marginTop: '0.75rem', color: '#4a5568' }}>Submitting your RSVP...</p>}
+                </fieldset>
             </form>
         ) : null}
     </section>

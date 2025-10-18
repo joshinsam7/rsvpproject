@@ -1,4 +1,5 @@
 import React from "react";
+import circle from '../assets/circle.jpeg';
 
 export default function About() {
   const scrollToRSVP = () => {
@@ -35,7 +36,7 @@ export default function About() {
         
         <div className="about-image">
           <div className="about-img-wrapper">
-            <img src="/src/assets/circle.jpeg" alt="Liam" className="about-img" />
+            <img src={circle} alt="Liam" className="about-img" />
           </div>
         </div>
       </div>

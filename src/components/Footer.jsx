@@ -1,5 +1,5 @@
 import React from 'react';
-import cLogo from '../assets/cLogo.png';
+import cLogo from '../assets/cLogo.PNG';
 
 export default function Footer() {
     const scrollTo = (id) => {
