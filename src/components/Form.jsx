@@ -34,9 +34,6 @@ export default function Form() {
             urlEncoded.append(key, value);
         }
 
-        // Log form data before sending
-        console.log("Submitting form data:", Object.fromEntries(formData.entries()));
-
         fetch(API_URL, {
             method: "POST",
             headers: {
@@ -80,7 +77,7 @@ export default function Form() {
                 <h3>Let's make Justopher smile</h3>
                 <h2>RSVP here</h2>
                 <p>We are getting well-prepared to welcome you. See you soon!</p>
-                <p>21.10.2025 | 5:00PM  (GMT-05:00)</p>
+                <p>October 21, 2025 | 5:00PM - 8:00PM</p>
                 <p>Houston Trinity MTC Sunday School Hall</p>
 
                 <div className="form-button">

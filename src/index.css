@@ -130,7 +130,7 @@ html {
   cursor: pointer;
   color: #e6eef8;
   transition: all 0.3s ease;
-  font-size: 1rem;
+  font-size: 20px;
 }
 
 .site-header.scrolled .nav-item {
@@ -342,6 +342,8 @@ button[disabled] {
   font-family: 'Fredoka', system-ui, sans-serif;
   font-weight: 700;
   font-size: 54px;
+  /* add a soft shadow to improve readability over bright backgrounds */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.35), 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 1024px) {
@@ -359,12 +361,11 @@ button[disabled] {
 
 @media (max-width: 480px) {
   .home-text {
-    top: 53%;
-    left: 45%;
+    top: 50%;
+    left: 47%;
     font-size: 20px;
     color: #ffffff;
-    /* add a linear gradient for the same color */
-    /* background: linear-gradient(180deg, rgba(6, 60, 150, 0.8), rgba(6, 60, 150, 0.5)); */
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5), 0 8px 16px rgba(0, 0, 0, 0.35);
   }
   /* Add a gradient overlay around the image for mobile devices */
   .home-hero__img::after {

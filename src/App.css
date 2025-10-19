@@ -462,7 +462,7 @@ section h3 {
 
 /* Date text above title */
 .invitation-content::before {
-  content: 'November 19th';
+  content: 'October 21st';
   display: block;
   font-size: 1.1rem;
   font-weight: 600;
