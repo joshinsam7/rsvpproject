@@ -22,7 +22,7 @@ export default function Footer() {
                         onClick={() => scrollTo("about")}
                         onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && scrollTo("about")}
                     >
-                        About Justapher
+                        About Justopher
                     </p>
                     <p
                         className="footer-nav-item"

@@ -1,28 +1,3 @@
-/* Self-hosted fonts: Fredoka */
-@font-face {
-  font-family: 'Fredoka';
-  src: url('./assets/Fredoka,Libre_Baskerville/Fredoka/static/Fredoka-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Fredoka';
-  src: url('./assets/Fredoka,Libre_Baskerville/Fredoka/static/Fredoka-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Fredoka';
-  src: url('./assets/Fredoka,Libre_Baskerville/Fredoka/static/Fredoka-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 /* Showcase Section */
 .showcase-section {
   padding: 5rem 2rem;
@@ -129,16 +104,28 @@
 }
 
 @media (max-width: 768px) {
-  .showcase-section { padding: 3rem 1.25rem; }
-  .showcase-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-  .showcase-image { height: 240px; }
-  .invitation { margin: 2rem 0; }
+  .showcase-section {
+    padding: 3rem 1.25rem;
+  }
+
+  .showcase-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .showcase-image {
+    height: 240px;
+  }
 }
 
 @media (max-width: 480px) {
-  .showcase-grid { grid-template-columns: 1fr; }
-  .showcase-image { height: 240px; }
+  .showcase-grid {
+    grid-template-columns: 1fr;
+  }
 
+  .showcase-image {
+    height: 240px;
+  }
 }
 
 #root {
@@ -217,7 +204,6 @@ section h3 {
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  position: relative; /* allow absolute overlay to center over the grid */
 
 }
 
@@ -455,9 +441,6 @@ section h3 {
   padding: 5rem 2rem;
   text-align: center;
   position: relative;
-  font-family: "Fredoka One";
-  font-weight: 400;
-  font-size: 54px;
 }
 
 /* Date text above title */
@@ -804,7 +787,7 @@ section h3 {
   }
 }
 
-@media (max-width: 480px ) {
+@media (max-width: 480px) {
   .about-section {
     padding: 2.5rem 1.25rem;
   }
@@ -1140,11 +1123,12 @@ section h3 {
 /* Footer Section */
 .footer {
   background: #1a365d;
-  padding: 1.25rem 1rem;
+  padding: 2.5rem 2rem;
   margin-top: 4rem;
 }
 
 .footer-inner {
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   gap:20em;
@@ -1154,7 +1138,7 @@ section h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 3rem;
   flex-wrap: wrap;
 }
 
@@ -1182,11 +1166,11 @@ section h3 {
 
 @media (max-width: 768px) {
   .footer {
-    padding: 1rem 1rem;
+    padding: 2rem 1.5rem;
   }
 
   .footer-nav {
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
   .footer-nav-item {
@@ -1197,7 +1181,7 @@ section h3 {
 @media (max-width: 480px) {
   .footer-nav {
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 1rem;
   }
 
   .footer-nav-item {

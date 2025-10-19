@@ -8,13 +8,14 @@ export default function Form() {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        console.log("Form data updated:", formData);
-
-    });
+        if (import.meta.env.DEV) {
+            console.log("Form data updated:", formData);
+        }
+    }, [formData]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setLoading(true);
+    setLoading(true);
         const API_URL = import.meta.env.VITE_API_URL;
         
             console.log("API_URL from env:", API_URL);
@@ -26,6 +27,12 @@ export default function Form() {
             }
         
         const form = e.target;
+
+        // Honeypot: If this hidden field is filled, likely a bot submission – silently drop.
+        if (form.website && form.website.value) {
+            setLoading(false);
+            return;
+        }
         const formData = new FormData(form);
 
         // Convert to application/x-www-form-urlencoded so Apps Script reads e.parameter
@@ -93,6 +100,11 @@ export default function Form() {
             <form ref={formRef} className="rsvp-form" onSubmit={handleSubmit} style={{ backgroundColor: 'white' }}>
                 <fieldset disabled={loading} style={{ border: 'none', padding: 0, margin: 0 }}>
                     <h3>RSVP Form</h3>
+                    {/* Honeypot field for bots; keep hidden from users and screen readers */}
+                    <div style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }} aria-hidden="true">
+                        <label htmlFor="website">Leave this field empty</label>
+                        <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
+                    </div>
                     <label>Will you join us for the birthday celebration?</label>
                     <div className="radio-group">
                         <label className="radio-option">
