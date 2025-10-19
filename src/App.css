@@ -1130,6 +1130,8 @@ section h3 {
 .footer-inner {
   max-width: 1200px;
   margin: 0 auto;
+  display: flex;
+  gap:20em;
 }
 
 .footer-nav {
@@ -1192,5 +1194,40 @@ section h3 {
   .home-hero__img {
     object-fit: cover;
     object-position: 50% 35%; /* 50% horizontal, 20% vertical */
+  }
+}
+
+
+.footer-logo {
+  width: 10em;
+  height: 10em;
+  display: block;
+  margin: 0 auto; 
+}
+
+
+/* @media (min-width: 360px) and (max-width: 768px) {
+
+  .footer-inner {
+  max-width: 1200px;
+  margin: auto auto;
+  display: block;
+  gap:20em;
+}
+} */
+
+@media (min-width: 360px) and (max-width: 768px) {
+  .footer-inner {
+    display: flex;           /* use flex to enable centering */
+    flex-direction: column;  /* stack items vertically on mobile */
+    align-items: center;     /* center horizontally */
+    justify-content: center; /* center vertically if needed */
+    max-width: 1200px;
+    margin: 0 auto;          /* horizontal centering of the container itself */
+    gap: 2rem;               /* space between logo and nav */
+  }
+
+  .footer-logo{
+    margin-left: 2em;
   }
 }

@@ -10,8 +10,8 @@ export default function Footer() {
     return (
         <footer className="footer">
             <div className="footer-inner">
-                <div>
-                    <img className="footer-logo" src={cLogo} alt="Company Logo" style={{ width: '250px', height: '250px' }} />
+                <div className='footer-inner-inner'>
+                    <img className="footer-logo" src={cLogo} alt="Company Logo" />
                 </div>
 
                 <nav className="footer-nav" aria-label="Footer navigation">
